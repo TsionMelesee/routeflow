@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: routeflow-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: routeflow
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: POSTGRESPASSWORD
+    ports:
+      - "5432:5432"
+    volumes:
+      - routeflow_postgres_data:/var/lib/postgresql/data
+
+volumes:
+  routeflow_postgres_data:
